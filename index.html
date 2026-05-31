@@ -1,440 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasneem HamedAlneel — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <title>Tasneem HamedAlneel | Software Engineer - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  :root {
+    --navy: #0d1b2a;
+    --navy2: #162233;
+    --slate: #1e3a52;
+    --mauve: #c084b0;
+    --mauve-dim: rgba(192,132,176,0.12);
+    --mauve-dim2: rgba(192,132,176,0.06);
+    --sand: #f0e8d8;
+    --sand-dim: rgba(240,232,216,0.08);
+    --white: #ffffff;
+    --muted: rgba(255,255,255,0.45);
+    --border: rgba(192,132,176,0.18);
+  }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  html { scroll-behavior: smooth; }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Noto+Naskh+Arabic&display=swap" rel="stylesheet">
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,180,166,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,180,166,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
 
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 5rem 0 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: var(--mauve);
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--mauve);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--mauve);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.85rem;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .hero-link:hover { background: var(--mauve-dim); }
+
+  .hero-badge {
+    text-align: right;
+  }
+
+  .avail-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--mauve);
+    background: var(--mauve-dim);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  .avail-dot::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--mauve);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── SECTION LABELS ── */
+  .section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mauve);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .skill-group {
+    background: var(--navy);
+    padding: 1.4rem 1.5rem;
+  }
+
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mauve);
+    margin-bottom: 1rem;
+  }
+
+  .skill-items { display: flex; flex-direction: column; gap: 0.55rem; }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .skill-name {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+  .skill-bar-track {
+    flex: 1;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 1px;
+    overflow: hidden;
+    min-width: 60px;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--mauve);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .skill-bar-fill.visible { transform: scaleX(1); }
+
+  .skill-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 1.5rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .job {
+    position: relative;
+    margin-bottom: 2.4rem;
+  }
+  .job:last-child { margin-bottom: 0; }
+
+  .job::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 8px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--mauve);
+    transform: translateX(-3px);
+    box-shadow: 0 0 0 3px var(--navy), 0 0 0 4px var(--mauve);
+  }
+
+  .job-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+  }
+
+  .job-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.08rem;
+    color: var(--white);
+  }
+
+  .job-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--mauve);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .job-company {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+  }
+
+  .job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: var(--mauve);
+    background: var(--mauve-dim2);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.72);
+    max-width: 680px;
+  }
+
+  .about-highlight {
+    color: var(--mauve);
+    font-weight: 500;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .edu-card {
+    background: var(--sand-dim);
+    border: 1px solid var(--border);
+    padding: 1.4rem 1.5rem;
+  }
+
+  .edu-degree {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-school {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+  }
+
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--mauve);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 2.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--mauve);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+  }
+  .footer-link:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-badge { text-align: left; }
+    .job-header { flex-direction: column; gap: 0.2rem; }
+  }
+</style>
 </head>
-
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+<div class="container">
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <!-- <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle"> -->
-        <h1 class="text-light mt-4 mb-4" id="header-text"><a href="index.html">Tasneem Hamed Alneel</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://github.com/SE-Tasneem" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/tasneem-hamedalneel" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <p class="hero-tag">Full-Stack Developer &amp; Data Analytics</p>
+      <h1 class="hero-name">Tasneem<br><em>HamedAlneel</em></h1>
+      <p class="hero-sub">
+        Senior developer with 11+ years building web systems — now expanding into data analytics with Power BI and working toward the PL-300 certification.
+      </p>
+      <div class="hero-links">
+        <a class="hero-link" href="mailto:setasneem@gmail.com">setasneem@gmail.com</a>
+        <a class="hero-link" href="https://se-tasneem.github.io" target="_blank">Portfolio ↗</a>
+        <a class="hero-link" href="tel:+971551536609">(+971) 55 153 6609</a>
       </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>skills</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
     </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Tasneem HamedAlneel</h1>
-      <p>I'm <span class="typed" data-typed-items="Software Engineer, Web Developer, Full-stack Developer, Freelancer"></span></p>
+    <div class="hero-badge">
+      <span class="avail-dot">AVAILABLE</span>
     </div>
-  </section><!-- End Hero -->
+  </header>
 
-  <main id="main">
+  <!-- ABOUT -->
+  <section class="section">
+    <p class="section-label">About</p>
+    <p class="about-text">
+      Highly skilled developer specializing in <span class="about-highlight">Laravel, Vue.js, and React</span>, with deep experience in e-commerce, SaaS, API integrations, and Linux deployments. Actively transitioning toward <span class="about-highlight">Data Analytics</span> roles — my rich programming background in SQL optimization, data pipelines, and system architecture forms a natural bridge. Currently learning <span class="about-highlight">Power BI</span> (DAX, data modeling, dashboards) and pursuing the <span class="about-highlight">PL-300 certification</span>.
+    </p>
+  </section>
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+  <!-- SKILLS -->
+  <section class="section">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid" id="skills-grid">
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p>
-            Highly skilled Senior Web Developer with over 7 years of experience specializing in Laravel, Vue.js, and Node.Js development.
-             Proficient in full-stack development, dedicated to producing high-quality,
-             maintainable code that meets the highest standards. Experienced in leading cross-functional teams,
-             translating business requirements into robust web applications, and ensuring seamless user experiences.
-          </p>
-        </div>
-
-        <div class="row">
-          <!-- <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div> -->
-          <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Full-Stack developer &amp; Software Engineer.</h3>
-            <!-- <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p> -->
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li> -->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>se-tasneem.github.io</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <a href="tel:00971551536609"><span>(971) 55 153 6609</span></a></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Sharjah, UAE</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <!-- <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li> -->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bacholer</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <a href="mailto:setasneem@gmail.com"><span>setasneem@gmail.com</span></a></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <!-- <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-            </p> -->
+      <div class="skill-group">
+        <p class="skill-group-title">Frontend</p>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">HTML / CSS</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:1.00"></div></div>
+            <span class="skill-pct">100%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.80"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Vue.js</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.80"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.60"></div></div>
+            <span class="skill-pct">60%</span>
           </div>
         </div>
-
       </div>
-    </section><!-- End About Section -->
 
-    <!-- ======= Facts Section ======= -->
-    <!-- <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      <div class="skill-group">
+        <p class="skill-group-title">Backend</p>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">PHP / Laravel</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.90"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Node.js</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.60"></div></div>
+            <span class="skill-pct">60%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">REST APIs</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.90"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MySQL / SQL</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.85"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
         </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-    </section> -->
-    <!-- End Facts Section -->
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">HTML/CSS <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">PHP - Laravel <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
+      <div class="skill-group">
+        <p class="skill-group-title">Data &amp; Analytics</p>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">Power BI</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.55"></div></div>
+            <span class="skill-pct">Learning</span>
           </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">Vue.Js <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Node.Js <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Python <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
+          <div class="skill-item">
+            <span class="skill-name">DAX</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.40"></div></div>
+            <span class="skill-pct">In Progress</span>
           </div>
-
+          <div class="skill-item">
+            <span class="skill-name">Python</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.55"></div></div>
+            <span class="skill-pct">55%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Data Modeling</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.45"></div></div>
+            <span class="skill-pct">In Progress</span>
+          </div>
         </div>
-
       </div>
-    </section><!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Tasneem HamedAlneel</h4>
-              <p><em>
-                Highly skilled Senior Web Developer with over 7 years of experience specializing in Laravel and Vue.js development. Proficient in full-stack development, dedicated to producing high-quality, maintainable code that meets the highest standards. Experienced in leading cross-functional teams, translating business requirements into robust web applications, and ensuring seamless user experiences.
-              </em></p>
-              <ul>
-                <li>Sharjah. UAE</li>
-                <li>(971) 55 153 6609</li>
-                <li>setasneem@gmail.com</li>
-              </ul>
-            </div>
+      <div class="skill-group">
+        <p class="skill-group-title">DevOps &amp; Tools</p>
+        <div class="skill-items">
+          <div class="skill-item">
+            <span class="skill-name">Linux Servers</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.85"></div></div>
+            <span class="skill-pct">85%</span>
           </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master’s in information technology</h4>
-              <h5>2016 - 2017</h5>
-              <p><em>Computer Science and Information Technology, Al-Neelain University, Khartoum, Sudan </em></p>
-              <p>Complementary project in web scrapping not completed yet</p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor’s in Software engineering</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Computer Science and Information Technology, Al-Neelain University, Khartoum, Sudan </em></p>
-              <p>Graduation Project in NLP (National Language Processing)</p>
-            </div>
+          <div class="skill-item">
+            <span class="skill-name">CI/CD</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.75"></div></div>
+            <span class="skill-pct">75%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Git / GitHub</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.88"></div></div>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Shopify API</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="--w:0.80"></div></div>
+            <span class="skill-pct">80%</span>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-12" data-aos="fade-up">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Full-Stack developer</h4>
-              <h5>Aug. 2020 - Aug. 2023</h5>
-              <p><em>Riseup Soft Company – Khartoum, Sudan</em></p>
-              <ul>
-                <li>I conducted an analysis and developed new projects using Laravel for backend development and Vue.Js for frontend development.</li>
-                <li>Led a dynamic team, effectively managing project requirements through the implementation of agile methodologies such as XP eXtreme Programming, utilizing task management tools like Trello and Jira, and monitoring team productivity with Clockify and Slack.</li>
-                <li>Generated detailed team evaluation reports and comprehensive project progress reports utilizing Excel spreadsheets.</li>
-                <li>Deployed projects on Linux servers and shared hosts by following continuous development (CI/CD) best practices and techniques using GitHub webhooks and shell commands, monitoring auto deployment by tools like CircleCi.</li>
-                <li>Helped the team to monitor projects performance by using MySQL logs and PhpMyAdmin status reports, and to enhance SQL queries we used some Laravel packages like haruncpi/laravel-query-log.</li>
-                <li>Performed an end-to-end test and unit test in Vue.Js projects and unit test in Laravel projects to ensure the validation of the project.</li>
-                <li>Participated in developing mid and large projects:
-                  o	Taxi app using Google Maps and Pusher for real-time notifications.
-                  o	SAAS systems for E-Commerce and for E-Learning.
-                  o	Building middleware to integrate two applications using Restful APIs by translating each side data (XML and SOAP data) and validating it before transferring it.
-                  o	Build WhatsApp and Facebook Messenger bot APIs.
-                  o	Create a payment gateway using Bankak (one of the biggest banks in Sudan).
-                </li>
-                <li>Provided guidance and advice to new members by writing team policies and standards.</li>
-                <li>Monitored project progress, ensuring it adhered to client requirements.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Full Stack Web Developer</h4>
-              <h5>Jan. 2020 - Dec. 2020</h5>
-              <p><em>Altareeg Alzaki - Khartoum, Sudan</em></p>
-              <ul>
-                <li>Developed projects following clean code standards, collaborating with mobile app developers to ensure seamless integration.</li>
-                <li>Creating simple to mid website in Laravel and creating backend Restful APIs to integrate with mobile applications like:
-                  o	Tarha (Taxi app) built using Google Maps and Firebase integration.
-                  o	Orderpharma app and system.
-                  o	Golden gate website for the gold stock market.
-                </li>
-                <li>Actively participated in team meetings to analyze project requirements and enhance development strategies.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Web Developer | Head of Department</h4>
-              <h5>Jan. 2018 - Dec. 2019</h5>
-              <p><em>The National Ribat University – Khartoum, Sudan</em></p>
-              <ul>
-                <li>Managed and led the web development team, overseeing the development of multiple university websites using Laravel and deploying them in the local data center.</li>
-                <li>Monitored and enhanced the university's main website by upgrading the PHP version and MySQL version, ensuring optimal user experience and functionality.</li>
-                <li>Actively participated in team meetings to analyze project requirements and enhance development strategies.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Full Stack Web Developer</h4>
-              <h5>Jan. 2015 - Dec. 2016</h5>
-              <p><em>Monitor Integrated Salutation – Khartoum, Sudan</em></p>
-              <ul>
-                <li>Participated in the analysis and design phase of systems utilizing entity relation diagrams and UML diagrams for creating the SRS documentation.</li>
-                <li>Programming the systems as per the analysis and design documents using Laravel framework and MySql for the database.</li>
-                <li>Actively participated in team meetings to analyze project requirements and enhance development strategies.</li>
-                <li>Communicate with customers to solicit the requirements.</li>
-                <li>Perform the deployment phase of the systems.</li>
-                <li>Troubleshoot and resolve the systems’ issues after the system deployment• Train the users on how to use systems.</li>
-                <li>Provide technical support to the systems’ users.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section><!-- End Resume Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
+    </div>
+  </section>
 
-        <div class="section-title">
-          <h2>Services</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <p class="section-label">Experience</p>
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Web Developer</span>
+          <span class="job-period">Jan 2024 — Present</span>
         </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Web sites</a></h4>
-            <p class="description">Create a user-friendly, fully responsive website with SEO best practices and high performance.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-cart4"></i></div>
-            <h4 class="title"><a href="">E-Commerce system</a></h4>
-            <p class="description">Transform your business into an online sensation! We design personalized, user-friendly e-commerce websites with responsive layouts, secure payment gateways, and intuitive dashboard controls.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-body-text"></i></div>
-            <h4 class="title"><a href="">API Development</a></h4>
-            <p class="description">Empower your digital dreams! We create custom APIs for seamless, user-friendly web adventures—making your business thrive with a personal touch.</p>
-          </div>
+        <p class="job-company">Taifalemarat · Ajman, UAE</p>
+        <div class="job-tags">
+          <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">React</span>
+          <span class="tag">Shopify</span><span class="tag">Payment Gateways</span><span class="tag">Linux</span>
         </div>
-
       </div>
-    </section><!-- End Services Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Full-Stack Developer</span>
+          <span class="job-period">Aug 2020 — Aug 2023</span>
         </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="info row">
-              <div class="address col-lg-4 col-sm-6">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Sharjah, UAE</p>
-              </div>
-
-              <div class="email col-lg-4  col-sm-6">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <a href="mailto:setasneem@gmail.com"><p>setasneem@gmail.com</p></a>
-              </div>
-
-              <div class="phone col-lg-4 col-sm-6">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <a href="tel:00971551536609"><p>(+971) 55 153 6609</p></a>
-              </div>
-            </div>
-          </div>
-
+        <p class="job-company">Riseup Soft Company · Khartoum, Sudan</p>
+        <div class="job-tags">
+          <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">SaaS</span>
+          <span class="tag">CI/CD</span><span class="tag">Team Lead</span><span class="tag">E-Commerce</span>
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Full-Stack Web Developer</span>
+          <span class="job-period">Jan 2020 — Dec 2020</span>
+        </div>
+        <p class="job-company">Altreeg Alzaki · Khartoum, Sudan</p>
+        <div class="job-tags">
+          <span class="tag">Laravel</span><span class="tag">REST APIs</span><span class="tag">Mobile Integration</span>
+        </div>
+      </div>
 
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Web Developer · Head of Department</span>
+          <span class="job-period">Jan 2018 — Dec 2019</span>
+        </div>
+        <p class="job-company">The National Ribat University · Khartoum, Sudan</p>
+        <div class="job-tags">
+          <span class="tag">Laravel</span><span class="tag">Team Management</span><span class="tag">PHP</span>
+        </div>
+      </div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Full-Stack Web Developer</span>
+          <span class="job-period">Jan 2015 — Dec 2016</span>
+        </div>
+        <p class="job-company">Monitor Integrated Salutation · Khartoum, Sudan</p>
+        <div class="job-tags">
+          <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">UML</span><span class="tag">SRS</span>
+        </div>
+      </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    </div>
+  </section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- EDUCATION -->
+  <section class="section">
+    <p class="section-label">Education</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <p class="edu-degree">Master's in Information Technology</p>
+        <p class="edu-school">Al-Neelain University, Sudan</p>
+        <p class="edu-year">2016 – 2017</p>
+      </div>
+      <div class="edu-card">
+        <p class="edu-degree">Bachelor's in Software Engineering</p>
+        <p class="edu-school">Al-Neelain University, Sudan · NLP Graduation Project</p>
+        <p class="edu-year">2010 – 2014</p>
+      </div>
+      <div class="edu-card">
+        <p class="edu-degree">PL-300 — Power BI Analyst</p>
+        <p class="edu-school">Microsoft Certification · In Progress</p>
+        <p class="edu-year">2025 – Present</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-copy">TASNEEM HAMEDALNEEL · AJMAN, UAE</span>
+    <a class="footer-link" href="https://se-tasneem.github.io" target="_blank">se-tasneem.github.io ↗</a>
+  </footer>
+
+</div>
+
+<script>
+  const fills = document.querySelectorAll('.skill-bar-fill');
+  fills.forEach(el => {
+    el.style.width = (parseFloat(el.style.getPropertyValue('--w')) * 100) + '%';
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar-fill').forEach(f => f.classList.add('visible'));
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.skill-group').forEach(g => observer.observe(g));
+</script>
 </body>
-
 </html>
